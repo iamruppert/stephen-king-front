@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../css/encyclopedia.css" rel="stylesheet"/>
+    <title>Encyclopedia</title>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <a class="navbar-brand" href="index.html">Stephen King</a>
+        <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+                type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="./encyclopedia.html">Encyclopedia</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./stephen.html">About Stephen King</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./about.html">Project</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="menu-overlay" id="menuOverlay">
+        <div class="menu-content">
+            <span class="close-btn" id="closeMenu">&times;</span>
+            <h2>Stephen King</h2>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="./encyclopedia.html">Encyclopedia</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./stephen.html">About Stephen King</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./about.html">Project</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <div class="container">
+        <section class="row mb-4">
+            <div class="col-md-6 d-flex align-items-center" id="search">
+                <input class="form-control mr-2" id="search-input" placeholder="Search..." type="text"/>
+                <button class="btn btn-primary" id="search-button" type="button">Search</button>
+            </div>
+            <div class="col-md-3 d-flex align-items-center" id="filter-options">
+                <label class="mr-1 white smaller-font" for="filter" id="sort">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel-fill" viewBox="0 0 16 16">
+                        <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5z"/>
+                    </svg>
+                </label>
+                <select class="form-control" id="filter">
+                    <option value="title">Alphabetically</option>
+                    <option value="year">Publication Year</option>
+                    <option value="pages">Page Count</option>
+                </select>
+            </div>
+            <div class="col-md-3 d-flex align-items-center" id="sort-options">
+                <label class="mr-1 white smaller-font" for="sort-order">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filter" viewBox="0 0 16 16">
+                        <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
+                    </svg>
+                </label>
+                <select class="form-control" id="sort-order">
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                </select>
+                <button class="btn btn-secondary ml-2" id="sort-button" type="button">Sort</button>
+                <button class="btn btn-info ml-2" id="reset-button" type="button">Reset</button>
+            </div>
+        </section>
+    </div>
+    <div class="container">
+        <section class="image-gallery row" id="results"></section>
+    </div>
+
+    <!-- Modal -->
+    <div aria-hidden="true" aria-labelledby="bookModalLabel" class="modal fade" data-backdrop="static" id="bookModal"
+         role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bookModalLabel">Book Title</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="bookDescription"></p>
+                    <ul>
+                        <li><strong>Publisher:</strong> <span id="bookPublisher"></span></li>
+                        <li><strong>Year:</strong> <span id="bookYear"></span></li>
+                        <li><strong>Pages:</strong> <span id="bookPages"></span></li>
+                        <li><strong>ISBN:</strong> <span id="bookIsbn"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</main>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="../js/encyclopedia.js"></script>
+</body>
+</html>

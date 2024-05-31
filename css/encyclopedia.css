@@ -5,20 +5,6 @@ html {
   font-family: "Creepster", cursive;
 }
 
-.subtitle {
-  color: white;
-  font-family: "Creepster", cursive;
-  font-size: 60px;
-  text-align: center;
-}
-
-.inner-container {
-  display: flex;
-  justify-content: center; /* Wyśrodkowanie w poziomie */
-  align-items: center; /* Wyśrodkowanie w pionie */
-  height: 100%; /* Ustawiono wysokość na 100% wysokości rodzica */
-}
-
 body {
   background-image: url("../img/background.jpg");
   background-repeat: no-repeat;
@@ -27,10 +13,6 @@ body {
   background-attachment: fixed;
   display: flex;
   flex-direction: column;
-}
-
-.navbar-brand {
-  font-size: 50px;
 }
 
 nav a {
@@ -51,49 +33,6 @@ nav a:hover {
   animation: shake 0.5s;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-top: 10em;
-}
-
-#explore {
-  font-family: "Creepster", cursive;
-  text-decoration: none;
-  background-color: white;
-  color: black;
-  opacity: 1;
-  font-size: 3em;
-  border-radius: 50%;
-  padding: 0.2em 0.6em;
-  margin-top: 2em;
-  cursor: pointer;
-}
-
-#explore:hover {
-  background-color: black;
-  color: white;
-  animation: shake 0.5s;
-}
-
-#subtitle {
-  font-family: "Creepster", cursive;
-  font-size: 2em;
-  text-shadow: 2px 2px 5px black;
-  margin-bottom: 20px;
-  margin-left: 0;
-}
-
-#quote {
-  color: white;
-  font-size: 2em;
-  font-style: italic;
-  font-family: "Caveat", cursive;
-}
-
 @keyframes shake {
   0% {
     transform: rotate(0deg);
@@ -111,6 +50,17 @@ main {
     transform: rotate(0deg);
   }
 }
+
+@media (max-width: 1200px) {
+  .navbar-collapse {
+    display: none;
+  }
+
+  .navbar-toggler {
+    display: block;
+  }
+}
+
 
 @media (max-width: 1200px) {
   .navbar-collapse {
@@ -202,4 +152,45 @@ main {
 
 .menu-overlay.hide {
   animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+/* encyclopedia css */
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 10em;
+}
+
+.book-cover:hover{
+  cursor: pointer;
+}
+
+.smaller-font {
+    font-size: 0.9em;
+}
+.navbar-brand {
+    font-size: 50px;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.white {
+  color: white;
 }

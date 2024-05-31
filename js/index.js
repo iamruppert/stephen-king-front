@@ -1,18 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
   const quoteElement = document.getElementById("quote");
-  const quotes = [
-    {
-      quote: "Get busy living or get busy dying. - Stephen King",
-    },
-    {
-      quote:
-        "Good books do n't give up all their secrets at once. - Stephen King",
-    },
-    {
-      quote:
-        '“Fiction is the truth inside the lie.” - Stephen King',
-    },
-  ];
+  const quotes = [{
+    quote: "Get busy living or get busy dying. - Stephen King",
+  }, {
+    quote: "Good books do n't give up all their secrets at once. - Stephen King",
+  }, {
+    quote: '“Fiction is the truth inside the lie.” - Stephen King',
+  },];
 
   const navbarToggler = document.querySelector('.navbar-toggler');
   const menuOverlay = document.getElementById('menuOverlay');
@@ -21,23 +15,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let currentQuoteIndex = 0;
 
-  navbarToggler.addEventListener('click', function() {
+  navbarToggler.addEventListener('click', function () {
     menuOverlay.classList.add('show');
     menuOverlay.classList.remove('hide');
   });
 
-  closeMenu.addEventListener('click', function() {
+  closeMenu.addEventListener('click', function () {
     menuOverlay.classList.add('hide');
     setTimeout(() => {
       menuOverlay.classList.remove('show');
     }, 500);
   });
 
-  menuContent.addEventListener('click', function(event) {
+  menuContent.addEventListener('click', function (event) {
     event.stopPropagation();
   });
 
-  menuOverlay.addEventListener('click', function(event) {
+  menuOverlay.addEventListener('click', function (event) {
     if (!menuContent.contains(event.target)) {
       menuOverlay.classList.add('hide');
       setTimeout(() => {
@@ -56,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function displayQuote() {
-    const { quote } = quotes[currentQuoteIndex];
+    const {quote} = quotes[currentQuoteIndex];
 
     quoteElement.textContent = "";
 
