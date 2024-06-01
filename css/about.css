@@ -37,6 +37,16 @@ nav a:hover {
   animation: shake 0.5s;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 10em;
+}
+
+
 @keyframes shake {
   0% {
     transform: rotate(0deg);
@@ -147,41 +157,69 @@ nav a:hover {
   animation: fadeOut 0.5s ease-in-out forwards;
 }
 
-/* encyclopedia css */
+/**/
 
-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+section {
+  position: relative;
+  background-color: white;
+  margin: 2em;
+  width: 60%;
   text-align: center;
-  margin-top: 10em;
+  padding-top: 1em;
 }
 
-.book-cover:hover{
-  cursor: pointer;
+h1 {
+  position: absolute;
+  top: -1em;
+  left: -1em;
+  margin: 0;
+  padding: 0.5em;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  z-index: 1;
 }
 
-.smaller-font {
-    font-size: 0.9em;
+h1:before {
+  content: attr(
+    data-index
+  );
 }
 
-
-.fade-in {
-    animation: fadeIn 0.5s ease-in-out forwards;
+section h1 {
+  z-index: 2;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+section p {
+  text-align: center;
+  padding: 1em 1em;
+  margin: 0;
+}
+section h2 {
+  padding: 0;
+  margin: 0;
 }
 
-.white {
-  color: white;
+section:nth-child(even) {
+  margin-left: auto;
 }
+
+.animate-slide-right {
+  animation: slide-right 2s ease-in-out;
+}
+
+.animate-slide-left {
+  animation: slide-left 2s ease-in-out;
+}
+
+@keyframes slide-right {
+  0% { transform: translateX(-50%); opacity: 0; }
+  50% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slide-left {
+  0% { transform: translateX(50%); opacity: 0; }
+  50% { transform: translateX(0); opacity: 1; }
+}
+
