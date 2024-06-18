@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
-  <link href="../css/about.css" rel="stylesheet"/>
-  <title>Project</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link href="../css/movies.css" rel="stylesheet"/>
+  <title>Stephen King Movies</title>
 </head>
+<body>
 <header>
   <nav class="navbar navbar-expand-xl navbar-dark fixed">
     <a class="navbar-brand" href="index.html">Stephen King</a>
@@ -52,31 +53,39 @@
     </div>
   </div>
 </header>
-<body>
 <main class="container">
-  <section class="mt-5">
-    <h2>Description</h2>
-    <p>
-      This project is a small website that presents novels and their details written by Stephen King
-      and present history of the author.
-    </p>
-  </section>
-  <section class="mt-5">
-    <h2>Motivation</h2>
-    <p>
-      Presented website is close to the interests of mine. I am passionate about the Stephen's King literature.
-      I decided to create a fandom wiki for people that share this passion with me.
-    </p>
-  </section>
-  <section class="mt-5">
-    <h2>Vision</h2>
-    <p>
-      Application presents books written by Stephen King and more about plots.
-      Website also fetches films from IMDB created base on Stephen's King novels also with other
-      information about cast.
-    </p>
-  </section>
+  <h1 class="subtitle">Stephen King Movies</h1>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Title</th>
+    </tr>
+    </thead>
+    <tbody id="moviesTable">
+    <!-- Movie titles will be inserted here -->
+    </tbody>
+  </table>
 </main>
-<script src="../js/about.js"></script>
+
+<div class="modal fade" id="movieModal" tabindex="-1" aria-labelledby="movieModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="movieModalLabel">Movie Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p id="movieDetails"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="../js/movies.js"></script>
 </body>
 </html>

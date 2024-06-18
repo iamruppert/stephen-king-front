@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   const resultsContainer = document.getElementById("results");
+  const loadingIndicator = document.getElementById("loadingIndicator");
 
+  // Początkowe pobranie danych
   fetchBooks("pages", "asc");
 
   const navbarToggler = document.querySelector(".navbar-toggler");
@@ -13,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const sortFilter = document.getElementById("filter");
   const sortOrderFilter = document.getElementById("sort-order");
   const resetButton = document.getElementById("reset-button");
-
 
   navbarToggler.addEventListener("click", function () {
     menuOverlay.classList.add("show");
@@ -40,15 +41,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-
   searchButton.addEventListener("click", function () {
     const searchValue = searchInput.value.trim();
-
     if (searchValue !== "") {
       fetchBooksByName(searchValue);
     }
   });
-
 
   sortButton.addEventListener("click", function () {
     const searchValue = searchInput.value.trim();
@@ -67,6 +65,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function fetchBooks(sortBy, sortOrder) {
+    // Wyświetlanie wskaźnika ładowania
+    showLoadingIndicator();
+
     fetch(`http://localhost:8080/stephen-king/api/books?sortBy=${sortBy}&sortOrder=${sortOrder}`)
       .then((response) => {
         if (!response.ok) {
@@ -75,15 +76,20 @@ document.addEventListener("DOMContentLoaded", function () {
         return response.json();
       })
       .then((data) => {
+        hideLoadingIndicator();
         displayBooks(data);
       })
       .catch((error) => {
+        hideLoadingIndicator();
         console.error("Error fetching data:", error);
         resultsContainer.textContent = "Error fetching data. Please try again later.";
       });
   }
 
   function fetchBooksByName(name, sortBy, sortOrder) {
+    // Wyświetlanie wskaźnika ładowania
+    showLoadingIndicator();
+
     fetch(`http://localhost:8080/stephen-king/api/search?name=${name}&sortBy=${sortBy}&sortOrder=${sortOrder}`)
       .then((response) => {
         if (!response.ok) {
@@ -92,9 +98,11 @@ document.addEventListener("DOMContentLoaded", function () {
         return response.json();
       })
       .then((data) => {
+        hideLoadingIndicator();
         displayBooks(data);
       })
       .catch((error) => {
+        hideLoadingIndicator();
         console.error("Error fetching data:", error);
         resultsContainer.textContent = "Error fetching data. Please try again later.";
       });
@@ -116,6 +124,10 @@ document.addEventListener("DOMContentLoaded", function () {
       resultsContainer.appendChild(bookDiv);
     });
 
+    attachBookClickListeners();
+  }
+
+  function attachBookClickListeners() {
     document.querySelectorAll('.book-cover').forEach(function (cover) {
       cover.addEventListener('click', function () {
         const bookId = parseInt(this.dataset.id);
@@ -125,6 +137,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function fetchBookDetails(bookId) {
+    // Wyświetlanie wskaźnika ładowania
+    showLoadingIndicator();
+
     fetch(`http://localhost:8080/stephen-king/api/book/${bookId}`)
       .then((response) => {
         if (!response.ok) {
@@ -133,9 +148,11 @@ document.addEventListener("DOMContentLoaded", function () {
         return response.json();
       })
       .then((book) => {
+        hideLoadingIndicator();
         showBookModal(book);
       })
       .catch((error) => {
+        hideLoadingIndicator();
         console.error("Error fetching book details:", error);
       });
   }
@@ -158,4 +175,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  function showLoadingIndicator() {
+    loadingIndicator.style.display = "block";
+  }
+
+  function hideLoadingIndicator() {
+    loadingIndicator.style.display = "none";
+  }
 });
