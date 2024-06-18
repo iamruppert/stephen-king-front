@@ -1,0 +1,71 @@
+/* Import fonts if necessary */
+@import url("https://fonts.googleapis.com/css2?family=Creepster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap");
+
+/* Global styles */
+html {
+  font-family: "Creepster", cursive;
+}
+
+.subtitle {
+  color: white;
+  font-family: "Creepster", cursive;
+  font-size: 60px;
+  text-align: center;
+}
+
+body {
+  background-image: url("../img/background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+#movieDetails {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  max-width: 800px; /* Zwiększona szerokość */
+  height: auto; /* Automatyczna wysokość */
+  margin: 20px;
+  text-align: center; /* Wyśrodkowanie zawartości */
+}
+
+#movieDetails img {
+  max-width: 100%;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto 20px; /* Wyśrodkowanie obrazka i dodanie marginesu na dole */
+}
+
+#movieDetails h5 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+#movieDetails p {
+  font-size: 1.5em;
+  line-height: 1.6;
+}
+
+#movieDetails ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px; /* Dodatkowy margines u góry listy */
+}
+
+#movieDetails ul li {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+#movieDetails ul li strong {
+  font-weight: bold;
+}
